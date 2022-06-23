@@ -1,0 +1,33 @@
+<h1> Edit Post</h1>
+<%= form_with model: @article do |form| %>
+
+<div>
+	<%= form.label :title %><br>
+	<%= form.text_field :title %> <br>
+	 <br>
+	 
+
+
+</div>	
+
+<div>
+	<%= form.label :body %> <br>
+	<%= form.text_area :body %> </div><br>
+
+
+
+<div> 
+	<%= form.select  :category_id ,Category.all.collect { |x|  [x.name,x.id]},{:include_blank =>"select one "} %>
+</div><br>
+
+	
+
+
+
+
+
+<div> <%= form.submit "Update Post" %></div>
+
+<% end %>
+<br>
+<%= link_to "go back", post_path %>
